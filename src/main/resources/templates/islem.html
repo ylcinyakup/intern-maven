@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Spring Boot Users</title>
+
+
+
+<link rel="stylesheet" media="screen"
+	href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css"
+	th:href="@{https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css}"></link>
+<script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"
+	th:href="@{https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js}"></script>
+
+</head>
+<body>
+
+	<div class="container">
+
+
+
+		<table class="table table-stripped">
+
+			<tr>
+				<form th:action="@{/islem}" th:object="${calculator}" method="post">
+					<div>
+						<td><input class="form-control" type="text" name="sayi 1"
+							th:field="*{sayi1}" /></td>
+						<td><input class="form-control" type="text" name="sayi 2"
+							th:field="*{sayi2}" /></td>
+						<td><input class="form-control" type="text" name="sonuc"
+							th:field="*{sonuc}" /></td>
+
+						<td><button type="submit" value="topla" name="topla"
+								class="btn btn-info" />topla</td>
+						<td><button type="submit" value="cikart" name="cikart"
+								class="btn btn-info" />cikart</td>
+						<td><button type="submit" value="carp" name="carp"
+								class="btn btn-info" />carp</td>
+						<td><button type="submit" value="bol" name="bol"
+								class="btn btn-info" />bol</td>
+				<td th:field="*{sonuc}"></td>
+				</div>
+				</form>
+			</tr>
+
+
+			<tr>
+				<h1 th:text="${calculator.sonuc}"></h1>
+				<label th:value="${calculator.sonuc}"></label>
+				<td th:field="${sonuc}"></td>
+			</tr>
+			<div>
+				<tr th:each="sonuc : ${sonuc}">
+					<label th:value="${sonuc}" th:text="${sonuc}"></label>
+
+				</tr>
+			</div>
+
+
+		</table>
+	</div>
+
+
+</body>
+</html>
